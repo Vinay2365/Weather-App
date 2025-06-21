@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="weather icon (1).png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
+    <title>Weather Forecast</title>
+</head>
+
+<body>
+    <header>
+        <div id="search_wrapper" class="search_container">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+                <path
+                    d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+            </svg>
+            <form id="weatherForm">
+                <input type="search" id="search_city" autocomplete="off" placeholder="Search City...">
+            </form>
+        </div>
+    </header>
+
+    <main class="main">
+        <div>
+            <div id="present_info">
+                <div>
+                    <div class="location_capsule">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#000000">
+                            <path
+                                d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                        </svg>
+                        <span id="country">--</span>
+                    </div>
+                    <div class="place">--, --</div>
+                    <div class="today">
+                        <div class="day">--</div>
+                        <div class="date">-- --, ----</div>
+                    </div>
+                    <div class="temp">
+                        <div class="present_temp">--</div>
+                        <div>
+                            <span class="high_temp">High: --</span>,
+                            <span class="low_temp">Low: --</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="toggle-wrapper active" onclick="toggleTemp()" id="toggle">
+                        <div class="slider"></div>
+                        <div class="label fahrenheit">F</div>
+                        <div class="label celsius">C</div>
+                    </div>
+
+                    <div class="weather_img">
+                        <img src="unknown.png" class="icon">
+                    </div>
+                    <div>
+                        <div class="condition">--</div>
+                        <div class="feels_like">Feels like --</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="forecast_today">
+                <div class="hourly_forecast">
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                    <div class="hour_capsule"></div>
+                </div>
+                <div class="astro">
+                    <div>Sunrise</div>
+                    <div class="sunrise">--:--</div>
+                    <div>Sunset</div>
+                    <div class="sunset">--:--</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="today_highlight">
+                <div>Today Highlight</div>
+                <div class="container">
+                    <div>
+                        <div id="pressure" class="sections">
+                            <div>Pressure</div>
+                            <div class="pressure_meter">--</div>
+                        </div>
+                        <div id="uv_index" class="sections">
+                            <div>UV Index</div>
+                            <div class="uv">--</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div id="wind_status" class="sections">
+                            <div>Wind Status</div>
+                            <div>
+                                <div class="wind_speed">--</div>
+                                <div class="direction">From: --</div>
+                                <div class="degree">--</div>
+                            </div>
+                            <div>
+                                <div>N</div>
+                                <svg id="dir_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <g data-name="Circle Down">
+                                        <path
+                                            d="M14.293 13.293 13 14.586V7a1 1 0 0 0-2 0v7.586l-1.293-1.293a1 1 0 0 0-1.414 1.414l3 3a1 1 0 0 0 1.414 0l3-3a1 1 0 0 0-1.414-1.414z" />
+                                        <path
+                                            d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z" />
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="humidity" class="sections">
+                            <div>Humidity</div>
+                            <div class="humidity_level">--</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="day_forecast">
+                <div>3-DAY FORECAST</div>
+                <div class="daily_forecast">
+                    <div class="daily_capsule"></div>
+                    <div class="daily_capsule"></div>
+                    <div class="daily_capsule"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

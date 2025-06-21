@@ -1,0 +1,601 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+
+body {
+    background: linear-gradient(to left, #0E1421, #1D325F, #0E1421);
+}
+
+#search_wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 400px;
+    height: 40px;
+    padding: 0 10px;
+    margin: 10px 30px;
+    gap: 0 10px;
+    border-radius: 20px;
+}
+
+#weatherForm {
+    width: 80%;
+    height: 100%;
+}
+
+#search_city {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    outline: none;
+    border: none;
+    font-size: 1.125em;
+}
+
+.search_container {
+    background-color: #ffffff1f;
+    backdrop-filter: blur(20px);
+}
+
+#weatherForm>input {
+    background-color: transparent;
+    color: #676B73;
+}
+
+.search_container>svg {
+    fill: #ffffff;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0 10px;
+}
+
+#present_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 20px 0 20px;
+    padding: 20px;
+    width: 650px;
+    height: 330px;
+    border-radius: 20px;
+    background-color: #ffffff1f;
+}
+
+/* #present_info > :nth-child(1){
+    background-color: red;
+} */
+#present_info> :nth-child(2) {
+    /* background-color: green; */
+    text-align: end;
+}
+
+.location_capsule {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0 10px;
+    padding: 0 10px;
+    width: 120px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #742BEC;
+    color: #ffffff;
+}
+
+.location_capsule>svg {
+    fill: #ffffff;
+}
+
+.place {
+    margin: 15px 0;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.today {
+    margin: 10px 0;
+    color: #ffffff;
+}
+
+.day {
+    font-size: 1.75em;
+}
+
+.date {
+    font-size: 0.75em;
+    font-weight: 200;
+}
+
+.temp {
+    color: #ffffff;
+}
+
+.present_temp {
+    font-size: 3em;
+}
+
+.temp> :nth-child(2) {
+    font-size: 0.75em;
+    font-weight: 200;
+}
+
+.icon {
+    margin: 20px 0;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.condition {
+    color: #ffffff;
+    font-size: 2em;
+}
+
+.feels_like {
+    color: #ffffff;
+    font-size: 0.75em;
+    font-weight: 200;
+}
+
+.toggle-wrapper{
+    margin-left: 70px;
+    width: 60px;
+    height: 30px;
+    background: #fff;
+    border-radius: 50px;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.toggle-wrapper .label {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 15px;
+    z-index: 1;
+}
+
+.label.fahrenheit {
+    color: #fff;
+    background-color: transparent;
+}
+
+.label.celsius {
+    color: #14203A;
+    background-color: transparent;
+}
+
+.slider {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #14203A;
+    border-radius: 25px;
+    top: 0;
+    left: 0;
+    transition: left 0.3s ease;
+    z-index: 0;
+}
+
+.active .slider {
+    left: 50%;
+}
+
+.active .fahrenheit {
+    color: #14203A;
+}
+
+.active .celsius {
+    color: #fff;
+}
+
+#forecast_today {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 650px;
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #ffffff1f;
+}
+
+.hourly_forecast {
+    height: 90%;
+    width: 75%;
+    border-radius: 20px;
+    padding: 0 10px;
+    background-color: #14203A;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.hourly_forecast::-webkit-scrollbar {
+    display: none;
+}
+
+.hour_capsule {
+    flex-shrink: 0;
+    min-width: 50px;
+    width: 80px;
+    height: 90%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #ffffff1f;
+}
+
+
+.astro {
+    width: 20%;
+    height: 90%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px 0;
+    background-color: #14203A;
+}
+
+.astro> :nth-child(1), .astro> :nth-child(3) {
+    color: #ffffff75;
+    font-size: 0.75em;
+    font-weight: 200;
+}
+
+.astro> :nth-child(2), .astro> :nth-child(4) {
+    color: #ffffff;
+    font-size: 1.25em;
+    font-weight: 300;
+}
+
+.main> :nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.today_highlight {
+    width: 630px;
+    height: 330px;
+    border-radius: 20px;
+    background-color: #ffffff1f;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.today_highlight> :nth-child(1) {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    font-size: 1.25em;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.container {
+    margin-top: 20px;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sections {
+    margin: 15px;
+    height: 120px;
+    width: 200px;
+    border-radius: 20px;
+    background-color: #14203A;
+}
+
+.day_forecast {
+    width: 630px;
+    height: 200px;
+    background-color: #ffffff1f;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.day_forecast> :nth-child(1) {
+    position: absolute;
+    top: 5px;
+    left: 30px;
+    font-size: 1.25em;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.daily_forecast {
+    margin-top: 20px;
+    padding: 0 10px;
+    width: 90%;
+    height: 70%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    background-color: #14203A;
+}
+
+.daily_forecast::-webkit-scrollbar {
+    display: none;
+}
+
+.daily_capsule {
+    flex-shrink: 0;
+    height: 90%;
+    min-width: 100px;
+    width: 150px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #ffffff1f;
+}
+
+.daily_capsule span {
+    font-size: 0.75em;
+}
+
+#pressure, #uv_index, #humidity {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#pressure> :nth-child(1), #uv_index> :nth-child(1), #humidity> :nth-child(1) {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.75em;
+    font-weight: 300;
+    color: #ffffff75;
+}
+
+.pressure_meter, .uv, .humidity_level {
+    margin-top: 20px;
+    font-size: 2em;
+    color: #ffffff;
+}
+
+#wind_status {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#wind_status> :nth-child(1) {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.75em;
+    font-weight: 300;
+    color: #ffffff75;
+}
+
+#wind_status> :nth-child(2) {
+    margin: 20px 0 0 10px;
+    color: #ffffff;
+}
+
+#wind_status> :nth-child(3) {
+    margin: 20px 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+}
+
+#dir_svg {
+    width: 32px;
+    height: 32px;
+    fill: #ffffff;
+}
+
+/* ————————————————————————————
+   Mobile breakpoint (up to ~768px)
+   ———————————————————————————— */
+@media (max-width: 768px) {
+
+    header {
+        display: flex;
+        justify-content: center;
+    }
+
+    #search_wrapper {
+        width: 90vw;
+    }
+
+    /* 1) Stack the four main sections */
+    .main {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 10px 0;
+    }
+
+    .main> :nth-child(2) {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    /* 2) Make each “card” full-width & auto-height */
+    #present_info {
+        width: 100% !important;
+        max-width: 90vw;
+        margin: 10px 0;
+        padding: 16px;
+        height: auto !important;
+        /* Preserve original flex layouts inside each */
+    }
+
+    /* 3) Don’t change present_info layout—keep it row */
+    #present_info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* 4) Forecast_today → stack hourly + astro */
+    #forecast_today {
+        margin: 10px 0;
+        width: 90vw;
+        height: 200px;
+        display: flex;
+    }
+
+    .hourly_forecast {
+        width: 75%;
+        height: 95%;
+    }
+
+    .astro {
+        width: 23%;
+        height: 95%;
+    }
+
+    .hour_capsule {
+        height: 80%;
+        width: 30%;
+    }
+
+    /* 5) 3-day forecast stays column */
+    .day_forecast {
+        width: 90vw;
+        height: 200px;
+    }
+
+    .daily_capsule {
+        width: 70px;
+    }
+
+    /* 6) “Today Highlight” keeps its 4-column row */
+    .today_highlight {
+        display: flex;
+        width: 90vw;
+        height: 410px;
+    }
+
+    .sections {
+        width: 150px;
+        height: 150px;
+    }
+
+    .wind_speed {
+        font-size: 0.125rem;
+    }
+
+    .direction,
+    .degree {
+        font-size: 0.75rem;
+    }
+
+    /* 7) Scale down fonts & icons */
+    .present_temp {
+        font-size: 2.5rem;
+    }
+
+    .today .day {
+        font-size: 1.5rem;
+    }
+
+    .condition {
+        font-size: 1.3rem;
+    }
+
+    .feels_like,
+    .date,
+    .temp> :nth-child(2),
+    .astro> :nth-child(2),
+    .astro> :nth-child(4) {
+        font-size: 0.9rem;
+    }
+
+    .pressure_meter,
+    .uv,
+    .wind_speed,
+    .humidity_level {
+        font-size: 1.25rem;
+    }
+
+    .icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    #dir_svg {
+        width: 24px;
+        height: 24px;
+    }
+
+}
+
+/* ————————————————————————————
+   Very small phones (up to ~480px)
+   ———————————————————————————— */
+@media (max-width: 480px) {
+    .present_temp {
+        font-size: 2.2rem;
+    }
+
+    .today .day {
+        font-size: 1.3rem;
+    }
+
+    .daily_capsule{
+        width: 30%;
+    }
+
+    .condition {
+        font-size: 1.1rem;
+    }
+
+    #search_wrapper {
+        width: 90vw !important;
+        margin: 10px auto;
+    }
+}

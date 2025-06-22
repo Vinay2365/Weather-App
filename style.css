@@ -471,7 +471,7 @@ body {
     }
 
     .wind_speed {
-        font-size: 0.125rem;
+        font-size: 0.75rem;
     }
 
     .direction,
@@ -502,7 +502,6 @@ body {
 
     .pressure_meter,
     .uv,
-    .wind_speed,
     .humidity_level {
         font-size: 1.25rem;
     }
@@ -542,5 +541,12 @@ body {
     #search_wrapper {
         width: 90vw !important;
         margin: 10px auto;
+    }
+}
+
+@media (max-width: 380px){
+    .sections{
+        width: 100px;
+        height: 100px;
     }
 }

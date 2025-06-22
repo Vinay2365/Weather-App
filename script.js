@@ -42,7 +42,7 @@ function updateUI(data) {
         if (index < hourlyData.length) {
             const dateTime = new Date(hourlyData[index].time);
             const hour = dateTime.getHours();
-            const temp = hourlyData[index].temp_c;
+            const temp = Math.floor(hourlyData[index].temp_c);
             const c_o_rain = hourlyData[index].chance_of_rain;
             const img = hourlyData[index].condition.icon;
             div.innerHTML = `
@@ -112,3 +112,19 @@ document.getElementById("weatherForm").addEventListener("submit", (e) => {
     const city = document.getElementById("search_city").value.trim();
     if (city) fetchWeather(city);
 });
+
+// 🌤️ Your existing weather-related JavaScript code yahaan aata hoga
+// Example: Fetch API, DOM manipulation, etc.
+
+// ✅ Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(registration => {
+        console.log('✅ Service Worker registered successfully:', registration.scope);
+      })
+      .catch(error => {
+        console.error('❌ Service Worker registration failed:', error);
+      });
+  });
+}

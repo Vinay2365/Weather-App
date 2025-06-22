@@ -30,7 +30,7 @@ function updateUI(data) {
     document.querySelector('.sunset').textContent = data.forecast.forecastday[0].astro.sunset;
     document.querySelector('.uv').textContent = data.current.uv;
     document.querySelector('.pressure_meter').innerHTML = `${data.current.pressure_mb}`;
-    document.querySelector('.wind_speed').textContent = `${data.current.wind_kph} K/h`;
+    document.querySelector('.wind_speed').textContent = `${data.current.wind_kph} km/h`;
     document.querySelector('.direction').textContent = `From: ${data.current.wind_dir}`;
     document.querySelector('.degree').textContent = `${data.current.wind_degree}°`;
     document.getElementById("dir_svg").style.transform = `rotate(${data.current.wind_degree}deg)`;

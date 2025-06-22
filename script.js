@@ -34,7 +34,7 @@ function updateUI(data) {
     document.querySelector('.direction').textContent = `From: ${data.current.wind_dir}`;
     document.querySelector('.degree').textContent = `${data.current.wind_degree}°`;
     document.getElementById("dir_svg").style.transform = `rotate(${data.current.wind_degree}deg)`;
-    document.querySelector('.humidity_level').textContent = data.current.humidity;
+    document.querySelector('.humidity_level').innerHTML = `${data.current.humidity}%`;
 
     const hourlyData = data.forecast.forecastday[0].hour;
     const hourlyDivs = document.querySelectorAll('.hour_capsule');

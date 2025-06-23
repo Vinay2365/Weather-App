@@ -113,9 +113,6 @@ document.getElementById("weatherForm").addEventListener("submit", (e) => {
     if (city) fetchWeather(city);
 });
 
-// 🌤️ Your existing weather-related JavaScript code yahaan aata hoga
-// Example: Fetch API, DOM manipulation, etc.
-
 // ✅ Service Worker Registration
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

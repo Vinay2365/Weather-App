@@ -467,6 +467,7 @@ body {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         justify-content: space-around;
+        align-content: center;
         height: 30px;
         width: 95% !important;
         padding: 0 10px;

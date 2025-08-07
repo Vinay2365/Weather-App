@@ -464,8 +464,8 @@ body {
     }
 
     .daily_capsule {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
         justify-content: space-around;
         height: 30px;
         width: 95% !important;
@@ -564,4 +564,5 @@ body {
         height: 80%;
     }
 }
+
 
